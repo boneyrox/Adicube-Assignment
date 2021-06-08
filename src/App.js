@@ -1,14 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import Influencer from './Frontend/Influencer';
-import Brand from './Frontend/Brand';
-
+import logo from "./logo.svg";
+import "./App.css";
+import Influencer from "./Frontend/Influencer";
+import Brand from "./Frontend/Brand";
+import Home from "./Frontend/Home";
 
 function App() {
   return (
     <div className="App">
-      <Brand/>
-      <Influencer/>
+      <Influencer />
+      <Home />
+      <Brand />
     </div>
   );
 }

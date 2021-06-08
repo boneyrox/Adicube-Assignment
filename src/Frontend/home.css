@@ -1,0 +1,16 @@
+.home{
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    width: 55%;
+    text-align: center;
+    background-color:white;
+}
+.header{
+    font-size: 50px;
+    font-weight: bolder;
+    color: rgb(85, 81, 81);
+}
+.header>img{
+    object-fit: contain;
+    width:30vw;
+}

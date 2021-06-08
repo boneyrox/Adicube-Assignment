@@ -1,0 +1,25 @@
+.influencer{
+    width: 22%;
+    padding: 10px;
+    text-align: center;
+    background-color:white;
+}
+.influencer__Access{
+    padding: 10px;
+    background-color: rgb(64, 147, 172);
+    border-radius: 5px;
+    border: none;
+}
+.text{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: rgb(43, 40, 40);
+    font-size: 20px;
+    font-weight: bolder;
+}
+.card__box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
