@@ -1,4 +1,4 @@
-.App {
+.app {
   padding: 20px;
   text-align: center;
   background-color: aliceblue;
@@ -8,3 +8,55 @@
   color:black;
 }
 
+.InfluencerAccess,.BrandLogin{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile__pic{
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: aquamarine;
+}
+
+.profile__pic>img{
+  object-fit: contain;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.info__box{
+  width: 20vw;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: aquamarine;
+  text-align: center;
+}
+.boxWidth{
+  width: 47vw;
+}
+.info__box__youTube{
+  width: 21vw;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: aquamarine;
+  text-align: center;
+}
+.AddNew{
+  border-radius: 5px;
+  margin:10px ;
+  padding: 10px;
+  background-color: aquamarine;
+  text-align: center;
+}
