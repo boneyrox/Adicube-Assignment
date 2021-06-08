@@ -9,8 +9,9 @@
 }
 .homePage {
   padding: 10px;
-  background-color: rgb(64, 147, 172);
+  background-color: rgb(188, 206, 212);
   border-radius: 5px;
   border: none;
+  text-decoration: none;
 
 }

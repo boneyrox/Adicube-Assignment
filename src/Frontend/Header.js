@@ -5,15 +5,15 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="header__page">
-      <Link to="/InfluencerAccess">
+      <Link to="/InfluencerAccess"style={{textDecoration:"none",fontWeight:'bold'}}>
         <div className="influencer__Access">Influencer Access</div>
       </Link>
 
-      <Link to="/BrandLogin">
+      <Link to="/BrandLogin"style={{textDecoration:"none",fontWeight:'bold'}}>
         <div className="brand__login">Brand Login</div>
       </Link>
 
-      <Link to="/MainPage">
+      <Link to="/MainPage"style={{textDecoration:"none",fontWeight:'bold'}}>
           <div className="homePage">HomePage</div>
           </Link>
     </div>

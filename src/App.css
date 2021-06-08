@@ -21,7 +21,7 @@
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  background-color: aquamarine;
+  background-color: rgb(188, 206, 212);
 }
 
 .profile__pic>img{
@@ -38,7 +38,7 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  background-color: aquamarine;
+  background-color: rgb(188, 206, 212);
   text-align: center;
 }
 .boxWidth{
@@ -50,13 +50,13 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  background-color: aquamarine;
+  background-color: rgb(188, 206, 212);
   text-align: center;
 }
 .AddNew{
   border-radius: 5px;
   margin:10px ;
   padding: 10px;
-  background-color: aquamarine;
+  background-color: rgb(188, 206, 212);
   text-align: center;
 }

@@ -7,7 +7,7 @@ const Influencer = () => {
   return (
     
       <div className="influencer">
-        <Link to="/InfluencerAccess">
+        <Link to="/InfluencerAccess"style={{textDecoration:"none",fontWeight:'bold'}}>
           <div className="influencer__Access">Influencer Access</div>
         </Link>
 
