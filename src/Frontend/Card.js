@@ -1,10 +1,11 @@
 import React from 'react';
 import './card.css'
 
-const Card = () => {
+const Card = ({imageOfcleb,Username}) => {
     return (
         <div className='card'>
-            <p>image 1</p>
+            <img src={imageOfcleb} alt="pictur" />
+            <p> {Username}</p>
         </div>
     )
 }

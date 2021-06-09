@@ -1,7 +1,14 @@
-.app {
+.App{
   padding: 20px;
+  min-height: 100vh;
   text-align: center;
-  background-color: aliceblue;
+  /* background:linear-gradient(45deg,green,yellow,rgb(136, 130, 130),rgb(125, 126, 125),rgb(138, 137, 137),rgb(185, 187, 185),rgb(172, 171, 171),rgb(184, 182, 182),rgb(165, 159, 159),yellow,green); */
+  background-color: rgb(46, 49, 51);
+
+}
+.app {
+  text-align: center;
+  background-color: rgb(46, 49, 51);
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
@@ -40,6 +47,7 @@
   border-radius: 5px;
   background-color: rgb(188, 206, 212);
   text-align: center;
+  border-style: none;
 }
 .boxWidth{
   width: 47vw;
@@ -52,6 +60,7 @@
   border-radius: 5px;
   background-color: rgb(188, 206, 212);
   text-align: center;
+  border-style: none;
 }
 .AddNew{
   border-radius: 5px;
@@ -59,4 +68,5 @@
   padding: 10px;
   background-color: rgb(188, 206, 212);
   text-align: center;
+  border-style: none;
 }

@@ -3,12 +3,13 @@
     border-right: 4px solid black;
     width: 55%;
     text-align: center;
-    background-color:white;
+    /* background:linear-gradient(45deg,rgb(53, 52, 52),rgb(125, 126, 125),rgb(138, 137, 137),rgb(160, 160, 159),rgb(172, 171, 171),rgb(187, 185, 185),rgb(56, 56, 56)); */
+    background-color: rgb(46, 49, 51);
 }
 .header{
     font-size: 50px;
     font-weight: bolder;
-    color: rgb(85, 81, 81);
+    color: rgb(56, 56, 56);
 }
 .header>img{
     object-fit: contain;

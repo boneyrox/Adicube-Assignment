@@ -15,7 +15,7 @@ function App() {
           <BrandLogin />
         </Route>
 
-        <Route path="/MainPage">
+        <Route path="/">
         <MainPage />
         </Route>
       </Switch>

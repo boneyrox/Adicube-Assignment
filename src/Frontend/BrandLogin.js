@@ -8,9 +8,9 @@ const BrandLogin = () => {
         <>
         <Header/>
         <div className="BrandLogin">
-            <h1>Brand Login</h1>
+            <h1 style={{color:'white',fontWeight:'bold'}} >Brand Login</h1>
             <div className="profile__pic">
-                <img src="https://www.unigreet.com/wp-content/uploads/2020/08/love-dp-pic-1024x916.jpg" alt="profile__pic" />
+                <img src="https://i.pinimg.com/originals/a1/2b/d0/a12bd0f468469a3b8424dab781268f4c.jpg" alt="profile__pic" />
             </div>
             <div className="BrandLogin__box">
                 <input className="formbox" type="text" placeholder="First Name*" />

@@ -4,6 +4,7 @@
   align-items: center;
   border-radius: 5px;
   padding: 10px;
+  /* background:linear-gradient(45deg,green,yellow,rgb(114, 160, 108),rgb(166, 199, 89),rgb(112, 221, 98),rgb(126, 165, 99),yellow,green); */
   background-color: rgb(98, 104, 104);
   text-align: center;
 }
@@ -14,4 +15,8 @@
   border: none;
   text-decoration: none;
 
+}
+.homePage:hover{
+  background-color: rgb(7, 39, 49);
+  color: white;
 }

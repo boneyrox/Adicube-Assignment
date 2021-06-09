@@ -8,10 +8,10 @@ const InfluencerAccess = () => {
       <Header />
 
       <div className="InfluencerAccess">
-        <h1> Influencer Access </h1>
+        <h1 style={{color:'white',fontWeight:'bold'}}> Influencer Access </h1>
         <div className="profile__pic">
           <img
-            src="https://www.unigreet.com/wp-content/uploads/2020/08/love-dp-pic-1024x916.jpg"
+            src="https://i.pinimg.com/originals/f1/3f/9c/f13f9c23ccfe9acd9ecca7acf95a4af2.jpg"
             alt="profile__pic"
           />
         </div>
