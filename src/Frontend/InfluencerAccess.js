@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import "./Header.css";
 
 const InfluencerAccess = () => {
+
+  const [ele, setEle] = useState([]);
+
+  const handleMinus = ()=>{
+
+  }
+
+  const handleAdd = () =>{
+    console.log("Invoke")
+    const element = React.createElement('div',{className:'InfluencerAccess__box' }, <>
+    <input className="info__box__youTube" type="text" placeholder="YouTube channel link*" />
+          <button className="AddNew" onClick={handleMinus}>-</button><br/>
+    <input className="info__box" type="text" placeholder="Integrated Video Price*" />
+    <input className="info__box" type="text" placeholder="Integrated Video Price*" />
+    <input className="info__box" type="text" placeholder="Integrated Video Price*" /></>)
+  // ReactDOM.render(element, rootEle)
+  
+  const copyele = [...ele, element];
+  setEle(copyele);
+  }
+  console.log(ele)
+
   return (
     <>
       <Header />
@@ -33,18 +55,31 @@ const InfluencerAccess = () => {
 
         <div className="InfluencerAccess__box">
           <input className="info__box__youTube" type="text" placeholder="YouTube channel link*" />
-          <button className="AddNew">+</button>
-          <input className="info__box__youTube" type="text" placeholder="OTP*" />
+          <button className="AddNew" onClick={handleAdd}>+</button>
         </div>
+        <div className="InfluencerAccess__box">
+          <input className="info__box" type="text" placeholder="Integrated Video Price*" />
+          <input className="info__box" type="text" placeholder="Integrated Video Price*" />
+          <input className="info__box" type="text" placeholder="Integrated Video Price*" />
+        </div>
+        <div id="youtube">{ele.map((item, index)=><div key={index}>{ item }</div> )}</div>
 
         <div className="InfluencerAccess__box">
           <input className="info__box" type="text" placeholder="Instagram channal link" />
-          <input className="info__box" type="text" placeholder="OTP*" />
         </div>
 
         <div className="InfluencerAccess__box">
-          <input className="info__box" type="text" placeholder="Integrated Video Price" />
-          <input className="info__box" type="text" placeholder="Pre-Roll Price" />
+          <input className="info__box" type="text" placeholder="Stor Price" />
+          <input className="info__box" type="text" placeholder="Reel Price" />
+          <input className="info__box" type="text" placeholder="Post Pricing" />
+        </div>
+        <div className="InfluencerAccess__box">
+          <input className="info__box" type="text" placeholder="Referral Code" />
+        </div>
+
+        <div className="InfluencerAccess__box">
+          <input type="checkbox"/>
+          <p>Terms and Condition</p>
         </div>
 
         <button className="info__box" style={{ backgroundColor: "orange" }}>
