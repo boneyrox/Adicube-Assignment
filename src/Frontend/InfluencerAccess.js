@@ -59,8 +59,8 @@ const InfluencerAccess = () => {
         </div>
         <div className="InfluencerAccess__box">
           <input className="info__box" type="text" placeholder="Integrated Video Price*" />
-          <input className="info__box" type="text" placeholder="Integrated Video Price*" />
-          <input className="info__box" type="text" placeholder="Integrated Video Price*" />
+          <input className="info__box" type="text" placeholder="Dedicated Video Price*" />
+          <input className="info__box" type="text" placeholder="Pre-Roll Price" />
         </div>
         <div id="youtube">{ele.map((item, index)=><div key={index}>{ item }</div> )}</div>
 
@@ -78,8 +78,8 @@ const InfluencerAccess = () => {
         </div>
 
         <div className="InfluencerAccess__box">
-          <input type="checkbox"/>
-          <p>Terms and Condition</p>
+          <input type="checkbox" style={{ width:"20px",height:"20px"}}/>
+          <p style={{ color:"white", fontWeight: "bold"}}>Terms and Condition</p>
         </div>
 
         <button className="info__box" style={{ backgroundColor: "orange" }}>
