@@ -5,14 +5,13 @@ import AdminLogin from "./AdminLogin";
 import AdminNotMaster from "./AdminNotMaster";
 import "./admin.css";
 const Admin = () => {
+  const master = null;
   return (
     <div>
       <Header />
       <h3>ADMIN SCREEN</h3>
       <div className="Admin__scren">
-        <AdminLogin />
-
-        <AdminMaster />
+        {master ? <AdminLogin /> : <AdminMaster />}
 
         <AdminNotMaster />
       </div>
