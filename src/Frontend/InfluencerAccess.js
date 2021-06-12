@@ -5,25 +5,34 @@ import "./Header.css";
 const InfluencerAccess = () => {
 
   const [ele, setEle] = useState([]);
+  const [count, setCount] = useState(0);
+  // const [divvalue, setDivvalue] = useState();
 
-  const handleMinus = ()=>{
 
+  const handleMinus = (e)=>{
+    const value = e.target.getAttribute('removed');
+    // const copyEle = ele.splice(value,value+1);
+    const newvalue = ele.filter(item=>item.key !==value)
+    // console.log(copyEle)
+    console.log(value)
+    setEle(newvalue);
   }
+  
 
   const handleAdd = () =>{
-    console.log("Invoke")
-    const element = React.createElement('div',{className:'InfluencerAccess__box' }, <>
+    const element =  <div className='InfluencerAccess__box' key={count}>
     <input className="info__box__youTube" type="text" placeholder="YouTube channel link*" />
-          <button className="AddNew" onClick={handleMinus}>-</button><br/>
+          <button className="AddNew" removed ={count} onClick={handleMinus}>-</button><br/>
     <input className="info__box" type="text" placeholder="Integrated Video Price*" />
     <input className="info__box" type="text" placeholder="Integrated Video Price*" />
-    <input className="info__box" type="text" placeholder="Integrated Video Price*" /></>)
-  // ReactDOM.render(element, rootEle)
+    <input className="info__box" type="text" placeholder="Integrated Video Price*" /></div>
+  // console.log(element.key)
+  // console.log(element.props.children[1].key)
   
   const copyele = [...ele, element];
   setEle(copyele);
+  setCount(count+1);
   }
-  console.log(ele)
 
   return (
     <>
@@ -62,7 +71,8 @@ const InfluencerAccess = () => {
           <input className="info__box" type="text" placeholder="Integrated Video Price*" />
           <input className="info__box" type="text" placeholder="Integrated Video Price*" />
         </div>
-        <div id="youtube">{ele.map((item, index)=><div key={index}>{ item }</div> )}</div>
+        
+        {ele.map((item, index)=> <div key = {index}>{item}</div> )}
 
         <div className="InfluencerAccess__box">
           <input className="info__box" type="text" placeholder="Instagram channal link" />
