@@ -21,3 +21,26 @@
   background-color: rgb(7, 39, 49);
   color: white;
 }
+
+.container__dropdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.Categories,.Language{
+  width: 15em;
+
+}
+.Categories__style{
+  margin-right: 10px;
+}
+.Language__style{
+  margin-left: 10px;
+}
+
+.Categories__lable{
+  color: white;
+  font-size: 30px;
+  font-family: 'Titillium Web', sans-serif;
+}

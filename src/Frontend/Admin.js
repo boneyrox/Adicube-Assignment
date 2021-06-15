@@ -11,7 +11,7 @@ const Admin = () => {
       <Header />
       <h3>ADMIN SCREEN</h3>
       <div className="Admin__scren">
-        {master ? <AdminLogin /> : <AdminMaster />}
+        {!master ? <AdminLogin /> : <AdminMaster />}
 
         <AdminNotMaster />
       </div>
