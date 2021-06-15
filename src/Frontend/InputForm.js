@@ -26,7 +26,7 @@ const InputForm = () => {
             CampaignBudget : campaignBudget,
             LaunchTiming : launchTiming,
             LoginId : loginId,
-            Password : password
+            password : password
         })
         axios.post("http://localhost:4000", inputData)
         .then(res =>console.log("Data Saved"))

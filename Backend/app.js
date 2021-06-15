@@ -1,6 +1,5 @@
 const express = require("express");
-const dotenv = require("dotenv")
-const cors = require('cors');
+const dotenv = require("dotenv");
 const PORT = 4000;
 const app = express();
 
@@ -11,11 +10,10 @@ require('./connection') // conection to router
 
 app.use(express.json()) // to understand the data to be in json
 
-const Brand = require('./schema'); //link to schema
+const Influencer = require("./schema");
+// const Brand = require('./schema'); //link to schema
 
-app.use(require('./router')) //link to router file
-
-app.use(cors())
+app.use(require('./infulencerAccess')) //link to router file
 
 app.listen(PORT, ()=>{
     console.log(`successfull listening at ${PORT}`)

@@ -12,14 +12,14 @@ const Brand = require("./schema");
 
 router.post("/", (req, res) => {
   const {
-    Firstname,
-    Lastname,
-    Email,
-    Number,
-    CompanyName,
-    CampaignBudget,
-    LaunchTiming,
-    LoginId,
+    firstname,
+    lastname,
+    email,
+    number,
+    companyName,
+    campaignBudget,
+    launchTiming,
+    loginId,
     password,
   } = req.body;
 
@@ -33,14 +33,14 @@ router.post("/", (req, res) => {
       }
 
       const data = new Brand({
-        Firstname,
-        Lastname,
-        Email,
-        Number,
-        CompanyName,
-        CampaignBudget,
-        LaunchTiming,
-        LoginId,
+        firstname,
+        lastname,
+        email,
+        number,
+        companyName,
+        campaignBudget,
+        launchTiming,
+        loginId,
         password,
       });
 

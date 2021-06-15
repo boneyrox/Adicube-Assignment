@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import axios from "axios";
 import Select from "react-select";
 import "./Header.css";
 
@@ -37,129 +36,102 @@ const Categories = [
 ];
 
 const InfluencerAccess = () => {
-  const [ele, setEle] = useState([]);
-
-  const handleAdd = () => {
-    console.log("Invoke");
-    const element = React.createElement(
-      "div",
-      { className: "InfluencerAccess__box" },
-      <>
-        <input
-          className="info__box__youTube"
-          type="text"
-          placeholder="YouTube channel link*"
-        />
-        <button className="AddNew" onClick={handleMinus}>
-          -
-        </button>
-        <br />
-        <input
-          className="info__box"
-          type="text"
-          placeholder="Integrated Video Price*"
-        />
-        <input
-          className="info__box"
-          type="text"
-          placeholder="Integrated Video Price*"
-        />
-        <input
-          className="info__box"
-          type="text"
-          placeholder="Integrated Video Price*"
-        />
-
-        <div className="container__dropdown">
-          <div className="Categories">
-            <div className="Categories__style">
-              <Select options={Categories} />
-            </div>
-          </div>
-
-          <div className="Language">
-            <div className="Language__style">
-              <Select options={Language} />
-            </div>
-          </div>
-        </div>
-      </>
-    );
-    // ReactDOM.render(element, rootEle)
-
-    const copyele = [...ele, element];
-    setEle(copyele);
-  };
-  // console.log(ele);
-  const handleMinus = (index) => {
-    const updatedItems = ele.filter((elem, id) => {
-      return index !== id;
-    });
-
-    setEle(updatedItems);
-  };
-
+  // const [ele, setEle] = useState([]);
+ 
+  const [input, setInput] = useState({
+    firstname:"",lastname:"",email:"",mobNumber:"", youtubeChannel:"", altMobNumber:"", intVideoPrice:"",
+    dediVideoPrice:"", Language:"", Categories:"", preRolPrice:"", instaChannel:"", storePrice:"", reelPrice:"", postPrice:"", referral:""
+  }); 
   
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobNumber, setMobNumber] = useState();
-  const [youtubChannel, setYoutubeChannel] = useState("");
-  const [altMobNumber, setAltMobNumber] = useState();
-  const [intVideoPrice, setIntVideoPrice] = useState("");
-  const [dediVideoPrice, setDediVideoPrice] = useState("");
-  const [preRolPrice, setPreRolPrice] = useState();
-  const [instaChannel, setInstaChannel] = useState("");
-  const [storePrice, setStorePrice] = useState();
-  const [reelPrice, setReelPrice] = useState();
-  const [postPrice, setPostPrice] = useState();
-  const [refral, setRefral] = useState();
-  const [error, setError] = useState(false);
-
-  function onChangeInput(value) {
-    // console.log(value);
+  let name, value
+  const handleInputs = (e)=>{
+    name= e.target.name;
+    value= e.target.value;
+    setInput({...input, [name]:value});
+    console.log(input)
   }
 
-  function onChangeCategories(value) {
-    // console.log(value);
-  }
+    const onSubmit = async (e) =>{
+        e.preventDefault();
+        console.log("invoke")        
 
-  function CheckedValue(value) {
-    // console.log(value);
-  }
-
-  const handelSubmit = async (e) => {
-    e.preventDefault();
-    setError(false);
-    try {
-      const res = await axios.post("/register", {
-        firstname,
-        lastname,
-        email,
-        mobNumber,
-        youtubChannel,
-        altMobNumber,
-        intVideoPrice,
-        dediVideoPrice,
-        preRolPrice,
-        instaChannel,
-        storePrice,
-        reelPrice,
-        postPrice,
-        refral,
-      });
-      console.log(res)
-    } catch (err) {
-      setError(true);
+        const {firstname, lastname, email, Language, Categories, mobNumber, youtubeChannel, altMobNumber, intVideoPrice,
+        dediVideoPrice, preRolPrice, instaChannel, storePrice, reelPrice, postPrice, referral} = input;
+        
+        const data= await fetch(' http://localhost:4000/register', {
+            method: "POST",
+            headers : {
+            "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+              firstname, lastname, email, Language, Categories, mobNumber, youtubeChannel, altMobNumber, intVideoPrice,
+              dediVideoPrice, preRolPrice, instaChannel, storePrice, reelPrice, postPrice, referral
+            })
+        })
+        const res = await data.json()
+        if(res.status === 400 || !res){
+          console.log("Data Failed")
+        }
+        else{
+          console.log("Successful")
+        }
     }
-  };
 
-  // console.log(firstname, lastname, youtubChannel, refral);
+  // const handleAdd = () => {
+  //   console.log("Invoke");
+
+  //   const element = <><div className ="InfluencerAccess__box">
+  //       <input
+  //         className="info__box__youTube"
+  //         type="text"
+  //         placeholder="YouTube channel link*"
+  //       />
+  //       <button className="AddNew">
+  //         -
+  //       </button>
+  //       <br />
+  //       <input
+  //         className="info__box"
+  //         type="text"
+  //         placeholder="Integrated Video Price*"
+  //       />
+  //       <input
+  //         className="info__box"
+  //         type="text"
+  //         placeholder="Integrated Video Price*"
+  //       />
+  //       <input
+  //         className="info__box"
+  //         type="text"
+  //         placeholder="Integrated Video Price*"
+  //       />
+
+  //       <div className="container__dropdown">
+  //         <div className="Categories">
+  //           <div className="Categories__style">
+  //             <Select options={Categories} />
+  //           </div>
+  //         </div>
+
+  //         <div className="Language">
+  //           <div className="Language__style">
+  //             <Select options={Language} />
+  //           </div>
+  //         </div>
+  //       </div>
+  //       </div>
+        
+  //     </>
+
+  //   const copyele = [...ele, element];
+  //   setEle(copyele);
+  // };
+
 
   return (
     <>
       <Header />
-      <form onSubmit={handelSubmit}>
+      <form method="POST">
         <div className="InfluencerAccess">
           <h1 style={{ color: "white", fontWeight: "bold" }}>
             
@@ -176,13 +148,17 @@ const InfluencerAccess = () => {
               className="info__box"
               type="text"
               placeholder="First Name*"
-              onChange={(e) => setFirstname(e.target.value)}
+              value={input.firstname}
+              name="firstname"
+              onChange={handleInputs}
             />
             <input
               className="info__box"
               type="text"
               placeholder="Last Name*"
-              onChange={(e) => setLastname(e.target.value)}
+              value={input.lastname}
+              name="lastname"
+              onChange={handleInputs}
             />
           </div>
           <div className="InfluencerAccess__box">
@@ -190,7 +166,9 @@ const InfluencerAccess = () => {
               className="info__box boxWidth"
               type="email"
               placeholder="Office E-mail address*"
-              onChange={(e) => setEmail(e.target.value)}
+              value={input.email}
+              name="email"
+              onChange={handleInputs}
             />
           </div>
           <div className="InfluencerAccess__box">
@@ -198,45 +176,57 @@ const InfluencerAccess = () => {
               className="info__box"
               type="number"
               placeholder="Mobile Number*"
-              onChange={(e) => setMobNumber(e.target.value)}
+              value={input.mobNumber}
+              name="mobNumber"
+              onChange={handleInputs}
             />
             <input
               className="info__box"
               type="number"
               placeholder="Alternate Number"
-              onChange={(e) => setAltMobNumber(e.target.value)}
+              value={input.altMobNumber}
+              name="altMobNumber"
+              onChange={handleInputs}
             />
           </div>
 
           <div className="InfluencerAccess__box">
             <input
               className="info__box__youTube"
-              onChange={(e) => setYoutubeChannel(e.target.value)}
+              value={input.youtubeChannel}
+              name="youtubeChannel"
+              onChange={handleInputs}
               type="text"
               placeholder="YouTube channel link*"
             />
-            <button className="AddNew" onClick={handleAdd}>
+            {/* <button className="AddNew">
               +
-            </button>
+            </button> */}
           </div>
           <div className="InfluencerAccess__box">
             <input
               className="info__box"
               type="number"
               placeholder="Integrated Video Price*"
-              onChange={(e) => setIntVideoPrice(e.target.value)}
+              value={input.intVideoPrice}
+              name="intVideoPrice"
+              onChange={handleInputs}
             />
             <input
               className="info__box"
               type="number"
               placeholder="Dedicated Video Price*"
-              onChange={(e) => setDediVideoPrice(e.target.value)}
+              value={input.dediVideoPrice}
+              name="dediVideoPrice"
+              onChange={handleInputs}
             />
             <input
               className="info__box"
               type="number"
               placeholder="Pre-Roll Price"
-              onChange={(e) => setPreRolPrice(e.target.value)}
+              value={input.preRolPrice}
+              name="preRolPrice"
+              onChange={handleInputs}
             />
           </div>
 
@@ -247,8 +237,9 @@ const InfluencerAccess = () => {
                   Categories
                 </label>
                 <Select
-                  onChange={onChangeCategories}
+                  onClick={(e)=>(e.target.value)}
                   name="Categories"
+                  value={input.Categories}
                   options={Categories}
                 />
               </div>
@@ -260,7 +251,8 @@ const InfluencerAccess = () => {
                   Language
                 </label>
                 <Select
-                  onChange={onChangeInput}
+                  onClick={handleInputs}
+                  value={input.Language}
                   name="Language"
                   options={Language}
                 />
@@ -268,18 +260,20 @@ const InfluencerAccess = () => {
             </div>
           </div>
 
-          <div id="youtube">
+          {/* <div id="youtube">
             {ele.map((elem, index) => (
               <div key={index}>{elem}</div>
             ))}
-          </div>
+          </div> */}
 
           <div className="InfluencerAccess__box">
             <input
               className="info__box"
               type="text"
               placeholder="Instagram channal link"
-              onChange={(e) => setInstaChannel(e.target.value)}
+              value={input.instaChannel}
+              name="instaChannel"
+              onChange={handleInputs}
             />
           </div>
 
@@ -288,26 +282,34 @@ const InfluencerAccess = () => {
               className="info__box"
               type="text"
               placeholder="Store Price"
-              onChange={(e) => setStorePrice(e.target.value)}
+              value={input.storePrice}
+              name="storePrice"
+              onChange={handleInputs}
             />
             <input
               className="info__box"
               type="text"
               placeholder="Reel Price"
-              onChange={(e) => setReelPrice(e.target.value)}
+              value={input.reelPrice}
+              name="reelPrice"
+              onChange={handleInputs}
             />
             <input
               className="info__box"
               type="text"
               placeholder="Post Pricing"
-              onChange={(e) => setPostPrice(e.target.value)}
+              value={input.postPrice}
+              name="postPrice"
+              onChange={handleInputs}
             />
           </div>
           <div className="InfluencerAccess__box">
             <input
               className="info__box"
               type="text"
-              onChange={(e) => setRefral(e.target.value)}
+              value={input.referral}
+              name="referral"
+              onChange={handleInputs}
               placeholder="Referral Code"
             />
           </div>
@@ -315,7 +317,6 @@ const InfluencerAccess = () => {
           <div className="InfluencerAccess__box">
             <input
               type="checkbox"
-              onChange={CheckedValue}
               style={{ width: "20px", height: "20px" }}
             />
             <p
@@ -331,6 +332,7 @@ const InfluencerAccess = () => {
 
           <button
             className="info__box"
+            onClick = {onSubmit}
             type="submit"
             style={{ backgroundColor: "orange", width: "20em" }}
           >
@@ -338,9 +340,9 @@ const InfluencerAccess = () => {
           </button>
         </div>
       </form>
-      {error && <span style={{color:"red", marginTop:"10px"}}>Something went wrong!</span>}
     </>
   );
-};
+}
+
 
 export default InfluencerAccess;
