@@ -13,7 +13,7 @@ const InputForm = () => {
     const [launchTiming, setLaunchTiming] = useState();
     const [loginId, setLoginId] = useState();
     const [password, setPassword] = useState();
-    
+
     const onSubmit = (e) =>{
         e.preventDefault();
 
@@ -28,7 +28,7 @@ const InputForm = () => {
             LoginId : loginId,
             Password : password
         })
-        axios.post("http://localhost:4000/", inputData)
+        axios.post("http://localhost:4000", inputData)
         .then(res =>console.log("Data Saved"))
     }
     console.log(inputData);
