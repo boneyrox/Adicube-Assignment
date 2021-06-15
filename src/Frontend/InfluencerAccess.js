@@ -90,7 +90,7 @@ const InfluencerAccess = () => {
     const copyele = [...ele, element];
     setEle(copyele);
   };
-  console.log(ele);
+  // console.log(ele);
   const handleMinus = (index) => {
     const updatedItems = ele.filter((elem, id) => {
       return index !== id;
@@ -117,22 +117,22 @@ const InfluencerAccess = () => {
   const [error, setError] = useState(false);
 
   function onChangeInput(value) {
-    console.log(value);
+    // console.log(value);
   }
 
   function onChangeCategories(value) {
-    console.log(value);
+    // console.log(value);
   }
 
   function CheckedValue(value) {
-    console.log(value);
+    // console.log(value);
   }
 
   const handelSubmit = async (e) => {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("register", {
+      const res = await axios.post("/register", {
         firstname,
         lastname,
         email,
@@ -154,7 +154,7 @@ const InfluencerAccess = () => {
     }
   };
 
-  console.log(firstname, lastname, youtubChannel, refral);
+  // console.log(firstname, lastname, youtubChannel, refral);
 
   return (
     <>
