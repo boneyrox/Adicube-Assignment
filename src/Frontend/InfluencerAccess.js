@@ -37,49 +37,92 @@ const Categories = [
 
 const InfluencerAccess = () => {
   // const [ele, setEle] = useState([]);
- 
+
   const [input, setInput] = useState({
-    firstname:"",lastname:"",email:"",mobNumber:"", youtubeChannel:"", altMobNumber:"", intVideoPrice:"",
-    dediVideoPrice:"", Language:"", Categories:"", preRolPrice:"", instaChannel:"", storePrice:"", reelPrice:"", postPrice:"", referral:""
-  }); 
-  
-  let name, value
-  const handleInputs = (e)=>{
-    name= e.target.name;
-    value= e.target.value;
-    setInput({...input, [name]:value});
-    console.log(input)
-  }
+    firstname: "",
+    lastname: "",
+    email: "",
+    mobNumber: "",
+    altMobNumber: "",
+    youtubeChannel: "",
+    intVideoPrice: "",
+    dediVideoPrice: "",
+    // Language: "",
+    // Categories: "",
+    preRolPrice: "",
+    instaChannel: "",
+    storePrice: "",
+    reelPrice: "",
+    postPrice: "",
+    referral: "",
+  });
 
-    const onSubmit = async (e) =>{
-        e.preventDefault();
-        console.log("invoke")        
+  let name, value;
+  const handleInputs = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+    setInput({ ...input, [name]: value });
+    console.log(input);
+  };
 
-        const {firstname, lastname, email, Language, Categories, mobNumber, youtubeChannel, altMobNumber, intVideoPrice,
-        dediVideoPrice, preRolPrice, instaChannel, storePrice, reelPrice, postPrice, referral} = input;
-        
-        const data= await fetch(' http://localhost:4000/register', {
-            method: "POST",
-            headers : {
-            "Content-Type" : "application/json"
-            },
-            body : JSON.stringify({
-              firstname, lastname, email, Language, Categories, mobNumber, youtubeChannel, altMobNumber, intVideoPrice,
-              dediVideoPrice, preRolPrice, instaChannel, storePrice, reelPrice, postPrice, referral
-            })
-        })
-        const res = await data.json()
-        if(res.status === 400 || !res){
-          console.log("Data Failed")
-        }
-        else{
-          console.log("Successful")
-        }
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log("invoke");
+
+    const {
+      firstname,
+      lastname,
+      email,
+      // Language,
+      // Categories,
+      mobNumber,
+      altMobNumber,
+      youtubeChannel,
+      intVideoPrice,
+      dediVideoPrice,
+      preRolPrice,
+      instaChannel,
+      storePrice,
+      reelPrice,
+      postPrice,
+      referral,
+    } = input;
+
+    const data = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstname,
+        lastname,
+        email,
+        // Language,
+        // Categories,
+        mobNumber,
+        altMobNumber,
+        youtubeChannel,
+        intVideoPrice,
+        dediVideoPrice,
+        preRolPrice,
+        instaChannel,
+        storePrice,
+        reelPrice,
+        postPrice,
+        referral,
+      }),
+    });
+    const res = await data.json();
+    if (res.status === 400 || !res) {
+      console.log("Data Failed");
+    } else {
+      console.log("Successful");
     }
+  };
 
   // const handleAdd = () => {
   //   console.log("Invoke");
-
+  // }
   //   const element = <><div className ="InfluencerAccess__box">
   //       <input
   //         className="info__box__youTube"
@@ -120,13 +163,12 @@ const InfluencerAccess = () => {
   //         </div>
   //       </div>
   //       </div>
-        
+
   //     </>
 
   //   const copyele = [...ele, element];
   //   setEle(copyele);
   // };
-
 
   return (
     <>
@@ -134,7 +176,6 @@ const InfluencerAccess = () => {
       <form method="POST">
         <div className="InfluencerAccess">
           <h1 style={{ color: "white", fontWeight: "bold" }}>
-            
             Influencer Access
           </h1>
           <div className="profile__pic">
@@ -199,10 +240,9 @@ const InfluencerAccess = () => {
               type="text"
               placeholder="YouTube channel link*"
             />
-            {/* <button className="AddNew">
-              +
-            </button> */}
+            
           </div>
+          {/* <button className="AddNew" onClick={handleAdd}>+</button> */}
           <div className="InfluencerAccess__box">
             <input
               className="info__box"
@@ -237,7 +277,7 @@ const InfluencerAccess = () => {
                   Categories
                 </label>
                 <Select
-                  onClick={(e)=>(e.target.value)}
+                  onClick={(e) => e.target.value}
                   name="Categories"
                   value={input.Categories}
                   options={Categories}
@@ -280,7 +320,7 @@ const InfluencerAccess = () => {
           <div className="InfluencerAccess__box">
             <input
               className="info__box"
-              type="text"
+              type="number"
               placeholder="Store Price"
               value={input.storePrice}
               name="storePrice"
@@ -288,7 +328,7 @@ const InfluencerAccess = () => {
             />
             <input
               className="info__box"
-              type="text"
+              type="number"
               placeholder="Reel Price"
               value={input.reelPrice}
               name="reelPrice"
@@ -296,7 +336,7 @@ const InfluencerAccess = () => {
             />
             <input
               className="info__box"
-              type="text"
+              type="number"
               placeholder="Post Pricing"
               value={input.postPrice}
               name="postPrice"
@@ -315,10 +355,7 @@ const InfluencerAccess = () => {
           </div>
 
           <div className="InfluencerAccess__box">
-            <input
-              type="checkbox"
-              style={{ width: "20px", height: "20px" }}
-            />
+            <input type="checkbox" style={{ width: "20px", height: "20px" }} />
             <p
               style={{
                 color: "white",
@@ -332,7 +369,7 @@ const InfluencerAccess = () => {
 
           <button
             className="info__box"
-            onClick = {onSubmit}
+            onClick={onSubmit}
             type="submit"
             style={{ backgroundColor: "orange", width: "20em" }}
           >
@@ -342,7 +379,6 @@ const InfluencerAccess = () => {
       </form>
     </>
   );
-}
-
+};
 
 export default InfluencerAccess;
